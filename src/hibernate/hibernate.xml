@@ -1,0 +1,61 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+
+<hibernate-mapping package="hibernate">
+
+   <class name="Categoria" table="CATEGORIA">
+    <id name="id" column="CATEGORIA_ID">
+      <generator class="native"/>
+    </id>
+    <property name="Descripcion"/>
+    <property name="Imagen"/>
+    <property name="Nombre"/>
+  </class>
+
+   <class name="Producto" table="PRODUCTO">
+    <id name="id" column="PRODUCTO_ID">
+      <generator class="native"/>
+    </id>
+    <property name="Descripcion"/>
+    <property name="Precio"/>
+    <property name="Nombre"/>
+    <property name="Imagenes"/>
+    <property name="Colores"/>
+
+    <set name="Categorias" table="CATEGORIA_PRODUCTO" lazy="false">
+      <key column="PRODUCTO_ID"/>
+      <many-to-many column="CATEGORIA_ID"
+                    class="Categoria"/>
+    </set>
+
+  </class>
+ 
+   <class name="Usuario" table="USUARIO" >
+    <id name="id" column="USUARIO_ID">
+      <generator class="native"/>
+    </id>
+    <property name="Email"/>
+    <property name="Contrasena"/>
+  </class>
+
+   <class name="PageView" table="PAGEVIEW" >
+    <id name="id" column="PAGEVIEW_ID">
+      <generator class="native"/>
+    </id>
+    <property name="Pagina"/>
+    <property name="ExtraInfo"/>
+    <property name="Tipo"/>
+
+  </class> 
+    
+         <class name="Blog" table="BLOG" >
+    <id name="id" column="BLOG_ID">
+      <generator class="native"/>
+    </id>
+    <property name="Titulo"/>
+    <property name="Texto" type="text"/>
+    <property name="Fecha"/>
+  </class> 
+ </hibernate-mapping>

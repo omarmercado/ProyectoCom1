@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="
+http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-3.1.xsd
+http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+ 
+  <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+      <property name="location">
+         <value>file:C:\Users\omar\Desktop\PROYECYOS\Properties\Viejitos.properties</value>
+      </property> 
+   </bean>
+
+	<context:annotation-config />
+	
+   <bean id="dataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+    <property name="driverClassName" value="${BaseDatos.driverClassName}"/>
+    <property name="url" value="${BaseDatos.url}"/>
+    <property name="username" value="${BaseDatos.username}"/>
+    <property name="password" value="${BaseDatos.password}"/>
+  </bean>
+  
+  <bean id="SessionFactory" class="org.springframework.orm.hibernate3.LocalSessionFactoryBean">
+    <property name="dataSource" ref="dataSource"/>
+    <property name="mappingResources">
+      <list>
+        <value>hibernate/hibernate.xml</value> 
+      </list>
+    </property>
+    
+    <property name="hibernateProperties">
+    <value>
+      hibernate.show_sql=true    
+      hibernate.dialect=org.hibernate.dialect.MySQLDialect
+      hibernate.hbm2ddl.auto=update
+      hibernate.connection.autocommit=false
+      hibernate.current_session_context_class=thread
+    </value>
+    </property>
+  </bean>
+ 
+  
+  <bean id="PortadaController" class="controller.PortadaController"/>
+  <bean id="CategoriaController" class="controller.CategoriaController"/>   
+  <bean id="ProductoController" class="controller.ProductoController"/>  
+  <bean id="BlogController" class="controller.BlogController"/>  
+  
+  <bean id="CategoriasDAO" class="dao.CategoriasDAO"/> 
+  <bean id="PaginaDAO" class="dao.PaginaDAO"/>  
+  <bean id="ProductosDAO" class="dao.ProductosDAO"/> 
+  <bean id="UsuariosDAO" class="dao.UsuariosDAO"/> 
+  <bean id="BlogDAO" class="dao.BlogDAO"/> 
+
+  
+  <bean id="Hash5" class="helpers.Hash5"/> 
+  
+         
+</beans>
