@@ -100,7 +100,6 @@ body {
 #body {
 	float: left;
 	margin: 0 auto;
-	min-height: 812px;
 	padding: 20px 0 50px;
 	width: 100%;
 }
@@ -234,7 +233,7 @@ body {
 }
 #body div .section div {
 	background: #519194;
-	border: 5px solid #5fb3bd;
+	border: 5px solid whit;
 	border-radius: 4px;
 	float: none;
 	margin: 0;
@@ -329,7 +328,8 @@ body {
 }
 
 #DIVcategorias {
-	background: url(/theme/images/bg-nav-right.gif) repeat top right;
+	
+	border-bottom-color : white;
 	display: inline-block;
 	float: center;
 	list-style: none;
@@ -337,7 +337,6 @@ body {
 	padding: 0;
 }
 #acategoria {
-	background: url(/theme/images/bg-nav-left.gif) no-repeat top left;
 	color: #fff;
 	display: inline-block;
 	font-size: 16px;

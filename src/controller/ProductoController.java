@@ -1,5 +1,6 @@
 package controller;
 
+import hibernate.Blog;
 import hibernate.Categoria;
 import hibernate.Producto;
 
@@ -20,6 +21,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
 
+import dao.BlogDAO;
 import dao.CategoriasDAO;
 import dao.PaginaDAO;
 import dao.ProductosDAO;
@@ -42,6 +44,8 @@ public class ProductoController {
 	@Autowired
 	UsuariosDAO usuariosDAO;
 	
+	@Autowired
+	BlogDAO blogDAO;
 	
 	@RequestMapping(value="/Producto.htm", method=RequestMethod.GET)
 	public ModelAndView getProducto(@RequestParam(value="productoId")String productoId, 
@@ -56,11 +60,15 @@ public class ProductoController {
 		mv.setViewName(VersionInfo.get("View"));
 	
 		List<Categoria> ListCategorias = categoriasDAO.getCategoriasInfo();	
+		List<Blog> ListaBlogs = blogDAO.getUltimos10();
+
 		mv.addObject("ListCategorias",ListCategorias); 
 
-		  
+		mv.addObject("Pagina",paginaDAO.getPagina());
+
 		  mv.addObject("Producto",producto); 
-		  
+			mv.addObject("ListaBlogs", ListaBlogs);
+
 			String tipo =	VersionInfo.get("Tipo");
 
 			paginaDAO.pageView("Producto", productoId, tipo);

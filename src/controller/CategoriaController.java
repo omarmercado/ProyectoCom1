@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import hibernate.Blog;
 import hibernate.Categoria;
 import hibernate.Producto;
 
@@ -18,6 +19,7 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
 
+import dao.BlogDAO;
 import dao.CategoriasDAO;
 import dao.PaginaDAO;
 import dao.UsuariosDAO;
@@ -34,6 +36,8 @@ public class CategoriaController {
 	@Autowired
 	UsuariosDAO usuariosDAO;
 	
+	@Autowired
+	BlogDAO blogDAO;
 	
 	@RequestMapping(value="/Categoria.htm", method=RequestMethod.GET)
 	public ModelAndView getCategoria(@RequestParam(value="categoriaId")String categoriaId, HttpServletRequest request  ){
@@ -71,13 +75,17 @@ public class CategoriaController {
 		
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(VersionInfo.get("View"));
-
+		mv.addObject("Pagina",paginaDAO.getPagina());
+		
 		List<Categoria> ListCategorias = categoriasDAO.getCategoriasInfo();	
 		mv.addObject("ListCategorias",ListCategorias); 
+		
+		List<Blog> ListaBlogs = blogDAO.getUltimos10();
 
 		
 		mv.addObject("ListaProductos",ListaProductos2); 
-		
+		mv.addObject("ListaBlogs", ListaBlogs);
+
 		
 		mv.addObject("Categoria",cat); 
 

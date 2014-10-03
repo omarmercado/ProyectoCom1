@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Nombre.com</title>
+<title>VidaIndependiente.NET</title>
 <link href="theme/mobile/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -17,24 +17,28 @@
     <div >
 <img src="/theme/images/portada2.jpg">
 	</div>
-	
+
 <div id="header">
   <div class="section">
 <table align="center">
+<tr><td><br><br><br>
+</td></tr>
 <tr><td>
 		<ul>
-		<li><a href="Portada.htm" title="">Portada</a></li>
-		<li><a href="Portada.htm" title="">Contacto</a></li>
-	    <li><a href="Portada.htm" title="">Acerca de Nosotros</a></li>
-	    <li><a href="Blog.htm" title="">Blog</a></li>
+		<li><a href="Portada.htm" ><font style="font-size: 280%">Portada</font></a></li>
+		<li><a href="Informacion.htm" ><font style="font-size: 280%">Informacion</font></a></li>
+	    <li><a href="Blog.htm" ><font style="font-size: 280%">Blog</font></a></li>
 	    
 		</ul>
-				</td></tr>		
-</table>
+</td></tr>		
+</table>		
   </div>
 </div>
 
-
+<br>
+<br>
+<br>
+<br>
 	
 <div id="body" >
 
@@ -46,12 +50,15 @@
     <td width="100%">
       <table width="100%">
         <tr>
-          <th>${Blog.getTitulo()}</th>          
+          <th><font style="font-size: 450%">${Blog.getTitulo()}</font></th>          
         </tr>
-        
+        <tr><td><br><br></td></tr>
+      
+        </table>
+        <table width="80%" align="center">
         <tr>
         <td align="center">
-        <p> ${Blog.getTexto()} </p>
+        <p align="justify"><font style="font-size: 210%;font-family: verdana;line-height: 1.2;">${Blog.getTexto()}</font> </p>
         </td>
         </tr>
         
@@ -60,16 +67,16 @@
   </tr> 
 </table>
          
-<table> 
-<tr><td>    
+<table width="100%" align="left"> 
+<tr><td align="left">    
 <div>    
-<h3>Blog</h3>
+<h3><font style="font-size: 200%; font-weight: bold;">Ultimas Entradas</font></h3>
 
 <ul>
 <c:forEach var="ListaBlog" items="${ListaBlogs}">  
 <li>
 <div id="DIV" style="float: center; ">
-<a  href="GetBlog.htm?blogId=${ListaBlog.getId()} ">${ListaBlog.getTitulo()}</a>
+<a style="text-decoration: none;" href="GetBlog.htm?blogId=${ListaBlog.getId()} "><font style="font-size: 280%; font-weight: bold;font-family: verdana;">${ListaBlog.getTitulo()}</font></a>
 </div>
 </li>
 </c:forEach>

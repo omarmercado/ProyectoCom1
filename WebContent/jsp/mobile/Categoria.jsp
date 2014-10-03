@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Nombre.com</title>
+<title>VidaIndependiente.NET</title>
 <link href="theme/mobile/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -21,17 +21,17 @@
 <div id="header">
   <div class="section">
 <table align="center">
+<tr><td><br><br><br>
+</td></tr>
 <tr><td>
 		<ul>
-		<li><a href="Portada.htm" title="">Portada</a></li>
-		<li><a href="Portada.htm" title="">Contacto</a></li>
-	    <li><a href="Portada.htm" title="">Acerca de Nosotros</a></li>
-	    <li><a href="Blog.htm" title="">Blog</a></li>
-
+		<li><a href="Portada.htm" ><font style="font-size: 280%">Portada</font></a></li>
+		<li><a href="Informacion.htm" ><font style="font-size: 280%">Informacion</font></a></li>
+	    <li><a href="Blog.htm" ><font style="font-size: 280%">Blog</font></a></li>
+	    
 		</ul>
-		
-		</td></tr>		
-</table>
+</td></tr>		
+</table>		
   </div>
 </div>
 
@@ -42,13 +42,10 @@
 
 <div  style="width: 100%" >
 <table width="100%" align="center">
-<tr><td align="center">Categorias</td></tr>
-<tr><td align="center">
+<tr><td align="center" width="100%">
 <c:forEach var="Categoria" items="${ListCategorias}">  
-<div id="DIVcategorias" style="float: center; ">
-  <font style="font-size: 350%">
-    <a id="acategoria" href="Categoria.htm?categoriaId=${Categoria.getId()} ">${Categoria.getNombre()}</a>
-  </font>
+<div id="DIVcategorias" style="float: center; " align="center">
+    <a id="acategoria" href="Categoria.htm?categoriaId=${Categoria.getId()} "><font style="font-size: 160%">${Categoria.getNombre()}</font></a>
 </div>
 </c:forEach>
 </td></tr>
@@ -58,9 +55,9 @@
 
 			<div class="content">
 			<table align="center">
-<tr><td>
+<tr><td><br><br>
 
-		<h3> Categoria</h3>
+		<h3>${Categoria.getNombre()}</h3>
 </td></tr>		
 </table>
 
@@ -73,12 +70,12 @@
   <td width="33%">
     <table width="100%">
       <tr>
-        <th>${Producto.getNombre()}</th>
+        <th><font style="font-size: 200%">${Producto.getNombre()}</font></th>
       </tr>
       <tr>
         <td> 
         <a href="Producto.htm?productoId=${Producto.getId()}"  >
-        <img alt="" src="fotos/Productos/${Producto.getNombre()}/Foto Principal/${Producto.getNombre()}.jpg" width="100%" >
+        <img alt="" src="${Pagina.getImgPATH()}/Productos/${Producto.getNombre()}/Cat/${Producto.getNombre()}.jpg" width="100%" >
         </a>
         </td>
       </tr>

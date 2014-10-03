@@ -9,7 +9,7 @@
     <id name="id" column="CATEGORIA_ID">
       <generator class="native"/>
     </id>
-    <property name="Descripcion"/>
+    <property name="Descripcion" type="text"/>
     <property name="Imagen"/>
     <property name="Nombre"/>
   </class>
@@ -18,7 +18,7 @@
     <id name="id" column="PRODUCTO_ID">
       <generator class="native"/>
     </id>
-    <property name="Descripcion"/>
+    <property name="Descripcion" type="text"/>
     <property name="Precio"/>
     <property name="Nombre"/>
     <property name="Imagenes"/>
@@ -58,4 +58,13 @@
     <property name="Texto" type="text"/>
     <property name="Fecha"/>
   </class> 
+  
+      <class name="Pagina" table="PAGINA">
+    <id name="id" column="PAGINA_ID">
+      <generator class="native"/>
+    </id>
+      <property name="UltimaActualizacion"/>
+      <property name="imgPATH"/>
+    </class>
+    
  </hibernate-mapping>

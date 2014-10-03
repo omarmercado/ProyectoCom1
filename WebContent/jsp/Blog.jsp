@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Nombre.com</title>
+<title>VidaIndependiente.NET</title>
 <link href="theme/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -54,25 +54,8 @@
 
 <div class="sidebar" >
 
-<h3>Categorias</h3>
 
-
-
-<ul>
-<c:forEach var="Categoria" items="${ListCategorias}">  
-<li>
-<div id="DIVcategorias" style="float: center; ">
-
-<a id="acategoria" href="Categoria.htm?categoriaId=${Categoria.getId()} ">
-${Categoria.getNombre()}
-</a>
-</div>
-</li>
-</c:forEach>
-</ul>
-
-
-<h3>Blog</h3>
+<h3>Ultimas</h3>
 
 <ul>
 <c:forEach var="ListaBlog" items="${ListaBlogs}">  
@@ -86,6 +69,27 @@ ${ListaBlog.getTitulo()}
 </li>
 </c:forEach>
 </ul>
+
+
+<h3>Categorias</h3>
+
+
+
+<ul style="background: url(/theme/images/bg-nav-right.gif) repeat top right;">
+<c:forEach var="Categoria" items="${ListCategorias}">  
+<li>
+<div id="DIVcategorias" style="float: center; ">
+
+<a id="acategoria" href="Categoria.htm?categoriaId=${Categoria.getId()} ">
+${Categoria.getNombre()}
+</a>
+</div>
+</li>
+</c:forEach>
+</ul>
+
+
+
 
 </div>
 
@@ -102,39 +106,36 @@ ${ListaBlog.getTitulo()}
 
 
 <form action="EditarBlog.htm" name="ediForm" method="post">  
-<table width="90%">
+<table width="80%">
   <tr>
     <td width="70%">
       <table width="100%">
         <tr>
-          <td>   
+          <td align="center">   
           <c:choose>
             <c:when test="${sessionScope.usuario > 0}">        
                 <input type="text" name="txtTitulo" id="txtTitulo" value="${Blog.getTitulo()}"> 
             </c:when>
             <c:when test="${empty sessionScope.usuario}">
-              <th>${Blog.getTitulo()}</th>          
+             <p><font style="font-size: 200%; font-weight: bold; font-family: sans-serif; ">${Blog.getTitulo()}</font></p>  
             </c:when>
           </c:choose>
           </td>
         </tr>  
         <tr><td><br><br></td></tr>
-
-        <tr><td>Descripcion</td></tr>
         
+       <tr>
+         <td align="center">
         <c:choose>
-          <c:when test="${sessionScope.usuario > 0}">        
-            <tr><td>
-              <textarea name="txtTexto" id="txtTexto"> 
-                ${Blog.getTexto()}
-              </textarea>
-            </td></tr>
+          <c:when test="${sessionScope.usuario > 0}">                   
+              <textarea name="txtTexto" id="txtTexto" cols="60" rows="30">${Blog.getTexto()}</textarea>
           </c:when>
           <c:when test="${empty sessionScope.usuario}">
-            <tr><td><p>${Blog.getTexto()}</p></td></tr>
+            <p align="justify"><font style="font-size: 150%; font-weight: bold;">${Blog.getTexto()}</font></p>
           </c:when>
         </c:choose>
-
+        </td>
+      </tr>
 </table>
 
 <c:if test="${sessionScope.usuario > 0}">  

@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Nombre.com</title>
+<title>VidaIndependiente.NET</title>
 <link href="theme/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -24,8 +24,7 @@
 <tr><td>
 		<ul>
 		<li><a href="Portada.htm" >Portada</a></li>
-		<li><a href="Portada.htm" >Contacto</a></li>
-	    <li><a href="Portada.htm" >Acerca de Nosotros</a></li>
+		<li><a href="Informacion.htm" >Informacion</a></li>
 	    <li><a href="Blog.htm" >Blog</a></li>
 		</ul>
 </td></tr>		
@@ -35,9 +34,9 @@
 <table align="center">
 <tr><td>
 		<ul>
-		<li><a href="CategoriaForm.htm" title="">Nueva Categoria</a></li>
-	    <li><a href="ProductoForm.htm" title="">Nuevo Producto</a></li>
-		<li><a href="NuevoBlog.htm" title="">Nuevo Blog</a></li>
+		<li><a href="CategoriaForm.htm">Nueva Categoria</a></li>
+	    <li><a href="ProductoForm.htm">Nuevo Producto</a></li>
+		<li><a href="NuevoBlog.htm">Nuevo Blog</a></li>
 		</ul>
 </td></tr>		
 </table>
@@ -50,19 +49,35 @@
 
 <div class="blog">
 
-<div class="sidebar" >
+<div class="sidebar"  >
 
 
 <h3>Categorias</h3>
 
 
-<ul>
+<ul style="background: url(/theme/images/bg-nav-right.gif) repeat top right;">
 <c:forEach var="Categoria" items="${ListCategorias}">  
 <li>
-<div id="DIVcategorias" style="float: center; ">
+<div id="DIVcategorias" style="float: center;">
 
 <a id="acategoria" href="Categoria.htm?categoriaId=${Categoria.getId()} ">
 ${Categoria.getNombre()}
+</a>
+</div>
+</li>
+</c:forEach>
+</ul>
+
+
+<h3>Blog</h3>
+
+<ul>
+<c:forEach var="ListaBlog" items="${ListaBlogs}">  
+<li>
+<div id="DIV" style="float: center; ">
+
+<a  href="GetBlog.htm?blogId=${ListaBlog.getId()} ">
+${ListaBlog.getTitulo()}
 </a>
 </div>
 </li>
@@ -86,15 +101,15 @@ ${Categoria.getNombre()}
   
   
 <c:forEach var="Categoria" items="${lista}">    
-  <td width="25%">
+  <td width="25%" valign="top">
     <table align="left" width="100%"  cellspacing="5px" >
-      <tr>
+      <tr >
         <th>${Categoria.getNombre()}</th>
       </tr>
       <tr>
         <td width="100%">
         <a id="aSeleccion" href="Categoria.htm?categoriaId=${Categoria.getId()} " >
-        <img alt="" src="fotos/Categorias/${Categoria.getImagen()}.jpg" width="100%">
+        <img alt="" src="${Pagina.getImgPATH()}/Categorias/${Categoria.getImagen()}.jpg" width="100%">
         </a>
         </td>
       </tr>

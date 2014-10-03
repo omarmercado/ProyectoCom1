@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Nombre.com</title>
+<title>VidaIndependiente.NET</title>
 <link href="theme/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -56,7 +56,7 @@
 <h3>Categorias</h3>
 
 
-<ul>
+<ul  style="background: url(/theme/images/bg-nav-right.gif) repeat top right;">
 <c:forEach var="Categoria" items="${ListCategorias}">  
 <li>
 <div id="DIVcategorias" style="float: center; ">
@@ -69,14 +69,28 @@ ${Categoria.getNombre()}
 </c:forEach>
 </ul>
 
+<h3>Blog</h3>
+
+<ul>
+<c:forEach var="ListaBlog" items="${ListaBlogs}">  
+<li>
+<div id="DIV" style="float: center; ">
+
+<a  href="GetBlog.htm?blogId=${ListaBlog.getId()} ">
+${ListaBlog.getTitulo()}
+</a>
+</div>
+</li>
+</c:forEach>
+</ul>
 </div>
 
 
 			<div class="content">
-			<table align="center">
-<tr><td>
+			<table align="center" width="40%">
+<tr><td align="center">
 
-		<h3> Categoria</h3>
+		<h3> ${Categoria.getNombre()}</h3>
 </td></tr>		
 </table>
 
@@ -123,15 +137,15 @@ ${Categoria.getNombre()}
 <c:forEach var="lista" items="${ListaProductos}">  
   <tr>
 <c:forEach var="Producto" items="${lista}">  
-  <td width="25%">
+  <td width="25%" valign="top">
     <table width="100%">
-      <tr>
+      <tr valign="top">
         <th>${Producto.getNombre()}</th>
       </tr>
-      <tr>
-        <td>
-        <a id="aSeleccion" href="Producto.htm?productoId=${Producto.getId()} " target="_blank" >
-        <img alt="" src="fotos/Productos/${Producto.getNombre()}/Foto Principal/${Producto.getNombre()}.jpg" width="90%" >
+      <tr valign="top">
+        <td valign="top">
+        <a id="aSeleccion" href="Producto.htm?productoId=${Producto.getId()} " >
+        <img alt="" src="${Pagina.getImgPATH()}/Productos/${Producto.getNombre()}/Cat/${Producto.getNombre()}.jpg" width="90%" >
         </a>
         </td>
       </tr>

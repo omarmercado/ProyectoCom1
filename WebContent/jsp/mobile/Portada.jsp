@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Nombre.com</title>
+<title>VidaIndependiente.NET</title>
 <link href="theme/mobile/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -17,16 +17,16 @@
     <div >
 <img src="/theme/images/portada2.jpg">
 	</div>
-	
 <div id="header">
   <div class="section">
 <table align="center">
+<tr><td><br><br><br>
+</td></tr>
 <tr><td>
 		<ul>
-		<li><a href="Portada.htm" title="">Portada</a></li>
-		<li><a href="Portada.htm" title="">Contacto</a></li>
-	    <li><a href="Portada.htm" title="">Acerca de Nosotros</a></li>
-	    <li><a href="Blog.htm" title="">Blog</a></li>
+		<li><a href="Portada.htm" ><font style="font-size: 280%">Portada</font></a></li>
+		<li><a href="Informacion.htm" ><font style="font-size: 280%">Informacion</font></a></li>
+	    <li><a href="Blog.htm" ><font style="font-size: 280%">Blog</font></a></li>
 	    
 		</ul>
 </td></tr>		
@@ -39,13 +39,10 @@
 
 <div  style="width: 100%" >
 <table width="100%" align="center">
-<tr><td align="center">Categorias</td></tr>
-<tr><td align="center">
+<tr><td align="center" width="100%">
 <c:forEach var="Categoria" items="${ListCategorias}">  
-<div id="DIVcategorias" style="float: center; ">
-  <font style="font-size: 350%">
-    <a id="acategoria" href="Categoria.htm?categoriaId=${Categoria.getId()} ">${Categoria.getNombre()}</a>
-  </font>
+<div id="DIVcategorias" style="float: center; " align="center">
+    <a id="acategoria" href="Categoria.htm?categoriaId=${Categoria.getId()} "><font style="font-size: 160%">${Categoria.getNombre()}</font></a>
 </div>
 </c:forEach>
 </td></tr>
@@ -75,12 +72,12 @@
   <td width="25%">
     <table align="left" width="100%"  cellspacing="5px" >
       <tr>
-        <th>${Categoria.getNombre()}</th>
+        <th><font style="font-size: 300%">${Categoria.getNombre()}</font></th>
       </tr>
       <tr>
         <td width="100%">
         <a href="Categoria.htm?categoriaId=${Categoria.getId()} " >
-        <img alt="" src="fotos/Categorias/${Categoria.getImagen()}.jpg" width="100%">
+        <img alt="" src="${Pagina.getImgPATH()}/Categorias/${Categoria.getImagen()}.jpg" width="100%">
         </a>
         </td>
       </tr>
@@ -100,6 +97,29 @@
 </c:forEach>  
 </table>  
 </div>
+
+<br>
+<br>
+<hr>
+<br>
+<table width="100%" align="left"> 
+<tr><td align="left">    
+<div>    
+<h3><font style="font-size: 170%; font-weight: bold;">Blog : Ultimas Entradas</font></h3>
+
+<ul>
+<c:forEach var="ListaBlog" items="${ListaBlogs}">  
+<li>
+<div id="DIV" style="float: center; ">
+<a style="text-decoration: none;" href="GetBlog.htm?blogId=${ListaBlog.getId()} "><font style="font-size: 200%; font-weight: bold;">${ListaBlog.getTitulo()}</font></a>
+</div>
+</li>
+</c:forEach>
+</ul>
+</div>
+</td></tr>
+</table>    
+
 </div>
 
 

@@ -1,6 +1,7 @@
 package controller;
 
 
+import hibernate.Blog;
 import hibernate.Categoria;
 import hibernate.PageView;
 
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import dao.BlogDAO;
 import dao.CategoriasDAO;
 import dao.PaginaDAO;
 
@@ -27,12 +29,15 @@ public class PortadaController {
 	@Autowired
 	PaginaDAO paginaDAO;
 
+	@Autowired
+	BlogDAO blogDAO;
 	
 	@RequestMapping(value={"/","/Portada.htm"})
 	public ModelAndView getPortada(HttpServletRequest request){
 
 		List<Categoria> ListCategorias = categoriasDAO.getCategoriasInfo();	
-	
+		List<Blog> ListaBlogs = blogDAO.getUltimos10();
+
 		ModelAndView mv = new ModelAndView();		
 		Map<String, String> VersionInfo = paginaDAO.getVersion(request, "Portada"); 
 		
@@ -59,6 +64,9 @@ public class PortadaController {
 		}		
 		if(! TempList.isEmpty() ){ListCategorias2.add(TempList.clone());}
 		
+		mv.addObject("ListaBlogs", ListaBlogs);
+		mv.addObject("Pagina",paginaDAO.getPagina());
+
 		
 		mv.addObject("ListCategorias",ListCategorias); 
 		mv.addObject("ListCategorias2",ListCategorias2); 

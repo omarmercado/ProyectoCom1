@@ -50,6 +50,7 @@ http://www.springframework.org/schema/context/spring-context-3.1.xsd">
   <bean id="CategoriaController" class="controller.CategoriaController"/>   
   <bean id="ProductoController" class="controller.ProductoController"/>  
   <bean id="BlogController" class="controller.BlogController"/>  
+  <bean id="InformacionController" class="controller.InformacionController"/>  
   
   <bean id="CategoriasDAO" class="dao.CategoriasDAO"/> 
   <bean id="PaginaDAO" class="dao.PaginaDAO"/>  

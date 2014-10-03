@@ -1,6 +1,7 @@
 package controller;
 
 import hibernate.Blog;
+import hibernate.Categoria;
 
 import java.util.List;
 import java.util.Map;
@@ -16,6 +17,7 @@ import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.view.RedirectView;
 
 import dao.BlogDAO;
+import dao.CategoriasDAO;
 import dao.PaginaDAO;
 import dao.UsuariosDAO;
 
@@ -32,6 +34,9 @@ public class BlogController {
 	@Autowired
 	UsuariosDAO usuariosDAO;
 	
+	@Autowired
+	CategoriasDAO categoriasDAO;
+	
 	@RequestMapping("/Blog.htm")
 	public ModelAndView getUltimo(HttpServletRequest request){
 		
@@ -40,6 +45,8 @@ public class BlogController {
 		
 		Blog blog = blogDAO.getUltimo();
 		List<Blog> ListaBlogs = blogDAO.getUltimos10();
+		List<Categoria> ListCategorias = categoriasDAO.getCategoriasInfo();	
+
 		
 		String tipo =	VersionInfo.get("Tipo");
 
@@ -48,6 +55,7 @@ public class BlogController {
 		ModelAndView mv = new ModelAndView();
 		mv.setViewName(VersionInfo.get("View"));
 
+		mv.addObject("ListCategorias",ListCategorias); 
 		mv.addObject("ListaBlogs", ListaBlogs);
 		mv.addObject("Blog", blog);
 		return mv;
@@ -72,6 +80,7 @@ public class BlogController {
 		
 		Map<String, String> VersionInfo = paginaDAO.getVersion(request, "Blog"); 
 		List<Blog> ListaBlogs = blogDAO.getUltimos10();
+		List<Categoria> ListCategorias = categoriasDAO.getCategoriasInfo();	
 
 		
 		Blog blog = blogDAO.getUltimo();
@@ -84,6 +93,7 @@ public class BlogController {
 		mv.setViewName(VersionInfo.get("View"));
 		mv.addObject("Blog", blog);
 		mv.addObject("ListaBlogs", ListaBlogs);
+		mv.addObject("ListCategorias",ListCategorias); 
 
 		
 		return mv;

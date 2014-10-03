@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Nombre.com</title>
+<title>VidaIndependiente.NET</title>
 <link href="theme/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -80,13 +80,28 @@ function cambiarImagen(index){
 <h3>Categorias</h3>
 
 
-<ul>
+<ul style="background: url(/theme/images/bg-nav-right.gif) repeat top right;">
 <c:forEach var="Categoria" items="${ListCategorias}">  
 <li>
 <div id="DIVcategorias" style="float: center; ">
 
 <a id="acategoria" href="Categoria.htm?categoriaId=${Categoria.getId()} ">
 ${Categoria.getNombre()}
+</a>
+</div>
+</li>
+</c:forEach>
+</ul>
+
+<h3>Blog</h3>
+
+<ul>
+<c:forEach var="ListaBlog" items="${ListaBlogs}">  
+<li>
+<div id="DIV" style="float: center; ">
+
+<a  href="GetBlog.htm?blogId=${ListaBlog.getId()} ">
+${ListaBlog.getTitulo()}
 </a>
 </div>
 </li>
@@ -111,8 +126,9 @@ ${Categoria.getNombre()}
 <form action="EditarProducto.htm" name="ediForm" method="post">  
 <table width="90%">
   <tr>
-    <td width="70%">
-      <table width="100%">
+    <td width="70%" valign="top" >
+      <table width="100%" >
+      <tr><td><br><br><br></td></tr>
         <tr>
           
           <c:choose>
@@ -122,27 +138,36 @@ ${Categoria.getNombre()}
               </td></tr>
             </c:when>
             <c:when test="${empty sessionScope.usuario}">
-              <th>${Producto.getNombre()}</th>          
+              <th><font style="font-size: 170%; font-weight: bold; font-family: sans-serif;">${Producto.getNombre()}</font></th>          
             </c:when>
           </c:choose>
           
         </tr>
-        <tr>
-          <td align="center" >
+        <tr valign="top">
+          <td align="center" valign="top">
             <a href="Producto.htm?productoId=${Producto.getId()}" >
-              <img id="FOTO" alt="" src="fotos/Productos/${Producto.getNombre()}/Foto Principal/${Producto.getNombre()}.jpg" width="70%">
+              <img id="FOTO" alt="" src="${Pagina.getImgPATH()}/Productos/${Producto.getNombre()}/Foto Principal/${Producto.getNombre()}.jpg" width="70%">
             </a>
           </td>
-        </tr>
+        </tr> 
+        <tr>
+          <td  align="center">      
+            <c:forEach begin="0" end="${Producto.getImagenes()}" varStatus="loop">
+              <a href='#'  onclick='cambiarImagen(<c:out value="${loop.index}"/>);'>
+              <img alt="" src="${Pagina.getImgPATH()}/Productos/${Producto.getNombre()}/Fotos/${Producto.getNombre()}_${loop.index}.jpg" width="10%" >
+              </a>          
+            </c:forEach>
+          </td>
+        </tr>  
       </table>  
     </td>
     <td valign="top" width="30%"> <br>
       <table>
-        <tr><td>Descripcion de Producto</td></tr>
+        <tr><td><font style="font-size: 150%; font-weight: bold; font-family: sans-serif;">Descripcion de Producto</font></td></tr>
 
         <tr><td><br><br></td></tr>
 
-        <tr><td>Precio</td></tr>
+        <tr><td><font style="font-size: 120%; font-weight: bold; font-family: sans-serif;">Precio</font></td></tr>
        <c:choose>
           <c:when test="${sessionScope.usuario > 0}">        
             <tr><td>
@@ -150,25 +175,22 @@ ${Categoria.getNombre()}
             </td></tr>
           </c:when>
           <c:when test="${empty sessionScope.usuario}">
-            <tr><td align="left">${Producto.getPrecio()}</td></tr>    
+            <tr><td align="left"><font style="font-size: 130%; font-family: sans-serif;">${Producto.getPrecio()}</font></td></tr>    
           </c:when>
         </c:choose>
 
 
         <tr><td><br><br></td></tr>
 
-        <tr><td>Descripcion</td></tr>
-        
         <c:choose>
           <c:when test="${sessionScope.usuario > 0}">        
             <tr><td>
-              <textarea name="txtDescripcion" id="txtDescripcion"> 
-                ${Producto.getDescripcion()}
-              </textarea>
+              <textarea name="txtDescripcion" id="txtDescripcion" cols="20" rows="10">${Producto.getDescripcion()}</textarea>
             </td></tr>
           </c:when>
           <c:when test="${empty sessionScope.usuario}">
-            <tr><td><p>${Producto.getDescripcion()}</p></td></tr>
+            <tr><td><p>
+            <font style="font-size: 130%; font-family: sans-serif;">${Producto.getDescripcion()}</font></p></td></tr>
           </c:when>
         </c:choose>
 
@@ -192,25 +214,7 @@ Cantidad de imagenes <input type="text" name="txtImagenes" id="txtImagenes" valu
 </table>
 
 </form>
-
-    
-    <table width="100%" align="center">
-     <tr> <td width="50%" align="center"> 
-     
-          <c:forEach begin="0" end="${Producto.getImagenes()}" varStatus="loop">
-           <a href='#'  onclick='cambiarImagen(<c:out value="${loop.index}"/>);'>
-               <img alt="" src="fotos/Productos/${Producto.getNombre()}/Fotos/${Producto.getNombre()}_${loop.index}.jpg" width="10%" >
-               
-          </a>          
-          
-          </c:forEach>
-          
-     
-     </td>
-      <td  width="50%"> </td></tr>
-    
-    </table>
-                    
+      
 </div>
 
 </div>
