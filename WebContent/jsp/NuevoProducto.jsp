@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>VidaIndependiente.NET</title>
+<title>Vida Independiente.net</title>
 <link href="theme/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -23,10 +23,9 @@
 <table align="center">
 <tr><td>
 		<ul>
-		<li><a href="Portada.htm" title="">Portada</a></li>
-		<li><a href="Portada.htm" title="">Contacto</a></li>
-	    <li><a href="Portada.htm" title="">Acerca de Nosotros</a></li>
-	    <li><a href="Blog.htm" title="">Blog</a></li>	    
+		<li><a href="Portada.htm">Portada</a></li>
+		<li><a href="Informacion.htm" >Informacion</a></li>
+	    <li><a href="Blog.htm" >Blog</a></li>    
 		</ul>
 </td></tr>		
 </table>		
@@ -56,31 +55,31 @@
 <table>
 <tr>
 <td>
-nombre<input type="text" id="txtNombre" name="txtNombre">
+nombre<input type="text" id="txtNombre" name="txtNombre" size="50">
 </td>
 </tr>
 
 <tr>
 <td>
-descripcion<input type="text" id="txtDescripcion" name="txtDescripcion" >
+descripcion<input type="text" id="txtDescripcion" name="txtDescripcion" size="50">
 </td>
 </tr>
 
 <tr>
 <td>
-imagenes<input type="text" id="txtImagenes" name="txtImagenes" >
+imagenes<input type="text" id="txtImagenes" name="txtImagenes" value="0">
 </td>
 </tr>
 
 <tr>
 <td>
-precio<input type="text" id="txtPrecio" name="txtPrecio" >
+precio<input type="text" id="txtPrecio" name="txtPrecio" value="0">
 </td>
 </tr>
 
 <tr>
 <td>
-Colores<input type="text" id="txtColores" name="txtColores">
+Colores<input type="text" id="txtColores" name="txtColores" value="0">
 </td>
 </tr>
 

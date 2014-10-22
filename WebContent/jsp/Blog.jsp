@@ -5,10 +5,30 @@
     
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+<html prefix="og: http://ogp.me/ns#">
+<head profile="http://www.w3.org/2005/10/profile">
+<link rel="icon" type="images/png" href="/theme/images/icon.jpg" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>VidaIndependiente.NET</title>
+<title>Blog : Vida Independiente.net</title>
+<meta content="Sitio dedicado a la venta de ropa y accesorios especialmente diseñada para personas
+que tiene que ser vestida, para aquellos que están postrados en cama, en silla de ruedas,  o con 
+cierto problema de movilidad limitada. Ancianos (tercera edad), artritis o problemas de movilidad.
+Ubicado en Tijuana, Baja California Mexico" name="description">
+
+<meta content="es"  name="locale">
+
+<meta content="VidaIndependiente" property="og:site_name">
+<meta value="@CVida_ind" name="twitter:site">
+<meta content="http://www.VidaIndependiente.net/Blog.htm" property="og:url">
+<meta content="VidaIndependiente.net : Portada" property="og:title">
+<meta content="Sitio dedicado a la venta de ropa y accesorios especialmente diseñada para personas
+que tiene que ser vestida, para aquellos que están postrados en cama, en silla de ruedas,  o con 
+cierto problema de movilidad limitada. Ancianos (tercera edad), artritis o problemas de movilidad.
+Ubicado en Tijuana, Baja California Mexico" property="og:description">
+<meta property="og:locale" content="es" />
+<meta property="og:type" content="Venta.Ropa.Accesorios.Ancianos" />
+
 <link href="theme/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -24,10 +44,9 @@
 <table align="center">
 <tr><td>
 		<ul>
-		<li><a href="Portada.htm" title="">Portada</a></li>
-		<li><a href="Portada.htm" title="">Contacto</a></li>
-	    <li><a href="Portada.htm" title="">Acerca de Nosotros</a></li>
-	    <li><a href="Blog.htm" title="">Blog</a></li>
+		<li><a href="Portada.htm">Portada</a></li>
+		<li><a href="Informacion.htm" >Informacion</a></li>
+	    <li><a href="Blog.htm" >Blog</a></li>
 		</ul>
 				</td></tr>		
 </table>
@@ -54,36 +73,16 @@
 
 <div class="sidebar" >
 
-
-<h3>Ultimas</h3>
-
-<ul>
-<c:forEach var="ListaBlog" items="${ListaBlogs}">  
-<li>
-<div id="DIV" style="float: center; ">
-
-<a  href="GetBlog.htm?blogId=${ListaBlog.getId()} ">
-${ListaBlog.getTitulo()}
-</a>
-</div>
-</li>
-</c:forEach>
-</ul>
-
-
 <h3>Categorias</h3>
 
 
 
-<ul style="background: url(/theme/images/bg-nav-right.gif) repeat top right;">
+<ul >
 <c:forEach var="Categoria" items="${ListCategorias}">  
 <li>
-<div id="DIVcategorias" style="float: center; ">
-
 <a id="acategoria" href="Categoria.htm?categoriaId=${Categoria.getId()} ">
 ${Categoria.getNombre()}
 </a>
-</div>
 </li>
 </c:forEach>
 </ul>
@@ -94,7 +93,7 @@ ${Categoria.getNombre()}
 </div>
 
 
-<div class="content">
+<div class="content" style="width: 77%">
 
 
 <c:if test="${sessionScope.usuario > 0}">  
@@ -108,8 +107,8 @@ ${Categoria.getNombre()}
 <form action="EditarBlog.htm" name="ediForm" method="post">  
 <table width="80%">
   <tr>
-    <td width="70%">
-      <table width="100%">
+    <td>
+      <table >
         <tr>
           <td align="center">   
           <c:choose>
@@ -117,21 +116,21 @@ ${Categoria.getNombre()}
                 <input type="text" name="txtTitulo" id="txtTitulo" value="${Blog.getTitulo()}"> 
             </c:when>
             <c:when test="${empty sessionScope.usuario}">
-             <p><font style="font-size: 200%; font-weight: bold; font-family: sans-serif; ">${Blog.getTitulo()}</font></p>  
+             <p><font style="font-size: 160%; font-family: sans-serif; ">${Blog.getTitulo()}</font></p>  
             </c:when>
           </c:choose>
           </td>
         </tr>  
-        <tr><td><br><br></td></tr>
+        <tr><td><br></td></tr>
         
        <tr>
          <td align="center">
         <c:choose>
           <c:when test="${sessionScope.usuario > 0}">                   
-              <textarea name="txtTexto" id="txtTexto" cols="60" rows="30">${Blog.getTexto()}</textarea>
+              <textarea name="txtTexto" id="txtTexto" cols="80" rows="30">${Blog.getTexto()}</textarea>
           </c:when>
           <c:when test="${empty sessionScope.usuario}">
-            <p align="justify"><font style="font-size: 150%; font-weight: bold;">${Blog.getTexto()}</font></p>
+           <p align="justify" ><font style="font-size: 140%;font-family: sans-serif;line-height: 1.1">${Blog.getTexto()}</font></p> 
           </c:when>
         </c:choose>
         </td>
@@ -151,6 +150,31 @@ ${Categoria.getNombre()}
 
 </form>
 
+      
+ <table id="blogTable"  align="left" width="80%">
+<tr>
+<th align="left">
+Ultimas Entradas
+<th>
+</th>
+</tr>
+<tr>
+<td>
+
+<ul>
+<c:forEach var="ListaBlog" items="${ListaBlogs}">  
+<li style="list-style: square;">  <a style="text-decoration: none;" href="GetBlog.htm?blogId=${ListaBlog.getId()} "> 
+  <font style="font-size: 120%">${ListaBlog.getTitulo()} </font>
+  </a>  </li>
+</c:forEach>
+</ul>
+</td>
+</tr>
+
+
+
+</table>     
+      
                     
 </div>
 

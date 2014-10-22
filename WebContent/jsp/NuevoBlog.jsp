@@ -8,7 +8,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>VidaIndependiente.NET</title>
+<title>Vida Independiente.net</title>
 <link href="theme/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -23,10 +23,9 @@
 <table align="center">
 <tr><td>
 		<ul>
-		<li><a href="Portada.htm" title="">Portada</a></li>
-		<li><a href="Portada.htm" title="">Contacto</a></li>
-	    <li><a href="Portada.htm" title="">Acerca de Nosotros</a></li>
-	    <li><a href="Blog.htm" title="">Blog</a></li>	    
+		<li><a href="Portada.htm">Portada</a></li>
+		<li><a href="Informacion.htm" >Informacion</a></li>
+	    <li><a href="Blog.htm" >Blog</a></li>    
 		</ul>
 </td></tr>		
 </table>

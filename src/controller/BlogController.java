@@ -83,7 +83,7 @@ public class BlogController {
 		List<Categoria> ListCategorias = categoriasDAO.getCategoriasInfo();	
 
 		
-		Blog blog = blogDAO.getUltimo();
+		Blog blog = blogDAO.getBlogById(blogId);
 
 		String tipo =	VersionInfo.get("Tipo");
 		

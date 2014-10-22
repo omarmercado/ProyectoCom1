@@ -56,29 +56,21 @@ body {
 	width: 270px;
 }
 #header .section ul {
-	display: inline-block;
 	float: right;
-	margin: 0;
-	overflow: hidden;
-	padding: 14px 0 0;
 }
 #header .section ul li {
-	background: url(/theme/images/bg-nav-right.gif) repeat top right;
+	background-color : black;
 	display: inline-block;
+	background-color : black;
 	float: center;
-	list-style: none;
 	margin: 0 10px;
-	padding: 0;
 }
 #header .section ul li a {
 	background: url(/theme/images/bg-nav-left.gif) no-repeat top left;
 	color: #fff;
 	display: inline-block;
 	font-size: 16px;
-	height: 40px;
 	letter-spacing: 0.05em;
-	line-height: 40px;
-	margin: 0;
 	padding: 0 15px;
 	text-align: center;
 	text-decoration: none;
@@ -261,92 +253,27 @@ body {
 	color: #464646;
 	text-decoration: underline;
 }
-#body .content p a:hover {
-	color: #252525;
-}
-#body .sidebar {
-	background: url(/theme/images/bg-sidebar.jpg) repeat-y top left;
-	float: left;
-	margin: 0 10px 82px 0;
-	padding: 0;
-	width: 15%;
-}
-#body .sidebar h3 {
-	background: url(/theme/images/bg-sidebar-heading.jpg) no-repeat 0 0;
-	color: #2f394e;
-	font-family: 'Comfortaa-Regular';
-	font-size: 20px;
-	font-weight: normal;
-	letter-spacing: 0.1em;
-	margin: 0;
-	padding: 25px 10px;
-	text-align: center;
-	text-transform: capitalize;
-}
-#body .sidebar ul {
-	background: url(/theme/images/bg-sidebar-footer.jpg) no-repeat bottom left;
-	margin: 0;
-	padding: 0 20px 50px;
-}
-#body .sidebar ul li {
-	list-style: none;
-	margin: 0;
-	padding: 0 0 24px;
-}
-#body .sidebar ul li span {
-	color: #2f394e;
-	display: block;
-	font-size: 16px;
-	font-weight: bold;
-	letter-spacing: 0.01em;
-	line-height: 24px;
-	margin: 0;
-	padding: 0;
-}
-#body .sidebar ul li span a {
-	color: #2f394e;
-	text-decoration: none;
-}
-#body .sidebar ul li span a:hover {
-	color: #4c8f97;
-}
-#body .sidebar ul li p {
-	color: #000;
-	font-size: 13px;
-	line-height: 24px;
-	margin: 0;
-	padding: 0;
-}
-#body .sidebar ul li p a {
-	color: #000;
-	text-decoration: underline;
-}
-#body .sidebar ul li p a:hover {
-	color: #4c8f97;
-}
+
+
+
 
 #DIVcategorias {
 	background: url(/theme/images/bg-nav-right.gif) repeat top right;
 	display: inline-block;
 	float: center;
-	list-style: none;
-	margin: 0 20px;
-	padding: 0;
+
+	border-bottom: 15px solid white;
 }
 #acategoria {
-	background: url(/theme/images/bg-nav-left.gif) no-repeat top left;
-	color: #fff;
+	background-color : black;
 	display: inline-block;
-	font-size: 16px;
-	height: 30px;
+	color: #fff;
+	font-size: 20px;
 	letter-spacing: 0.05em;
-	line-height: 30px;
-	margin: 0;
-	padding: 0 15px;
+	padding: 0px 15px;
 	text-align: center;
 	text-decoration: none;
 	text-transform: uppercase;
+	
 }
-#acategoria {
-	color: #ccc;
-}
+

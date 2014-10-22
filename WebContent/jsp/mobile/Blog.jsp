@@ -5,10 +5,30 @@
     
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+<html prefix="og: http://ogp.me/ns#">
+<head profile="http://www.w3.org/2005/10/profile">
+<link rel="icon" type="images/png" href="/theme/images/icon.jpg" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>VidaIndependiente.NET</title>
+<title>Blog : Vida Independiente.net</title>
+<meta content="Sitio dedicado a la venta de ropa y accesorios especialmente diseñada para personas
+que tiene que ser vestida, para aquellos que están postrados en cama, en silla de ruedas,  o con 
+cierto problema de movilidad limitada. Ancianos (tercera edad), artritis o problemas de movilidad.
+Ubicado en Tijuana, Baja California Mexico" name="description">
+
+<meta content="es"  name="locale">
+
+<meta content="VidaIndependiente" property="og:site_name">
+<meta value="@CVida_ind" name="twitter:site">
+<meta content="http://www.VidaIndependiente.net/Blog.htm" property="og:url">
+<meta content="VidaIndependiente.net : Portada" property="og:title">
+<meta content="Sitio dedicado a la venta de ropa y accesorios especialmente diseñada para personas
+que tiene que ser vestida, para aquellos que están postrados en cama, en silla de ruedas,  o con 
+cierto problema de movilidad limitada. Ancianos (tercera edad), artritis o problemas de movilidad.
+Ubicado en Tijuana, Baja California Mexico" property="og:description">
+<meta property="og:locale" content="es" />
+<meta property="og:type" content="Venta.Ropa.Accesorios.Ancianos" />
+
 <link href="theme/mobile/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -48,9 +68,9 @@
 <table width="100%">
   <tr>
     <td width="100%">
-      <table width="100%">
+      <table width="90%">
         <tr>
-          <th><font style="font-size: 450%">${Blog.getTitulo()}</font></th>          
+          <th><font style="font-size: 350%">${Blog.getTitulo()}</font></th>          
         </tr>
         <tr><td><br><br></td></tr>
       
@@ -58,7 +78,7 @@
         <table width="80%" align="center">
         <tr>
         <td align="center">
-        <p align="justify"><font style="font-size: 210%;font-family: verdana;line-height: 1.2;">${Blog.getTexto()}</font> </p>
+        <p align="justify"><font style="font-size: 240%;font-family: sans-serif;line-height: 1.2;">${Blog.getTexto()}</font> </p>
         </td>
         </tr>
         

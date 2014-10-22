@@ -5,10 +5,30 @@
     
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+<html prefix="og: http://ogp.me/ns#">
+<head profile="http://www.w3.org/2005/10/profile">
+<link rel="icon" type="images/png" href="/theme/images/icon.jpg" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>VidaIndependiente.NET</title>
+<title>Categoria : Vida Independiente.net</title>
+<meta content="Sitio dedicado a la venta de ropa y accesorios especialmente diseñada para personas
+que tiene que ser vestida, para aquellos que están postrados en cama, en silla de ruedas,  o con 
+cierto problema de movilidad limitada. Ancianos (tercera edad), artritis o problemas de movilidad.
+Ubicado en Tijuana, Baja California Mexico" name="description">
+
+<meta content="es"  name="locale">
+
+<meta content="VidaIndependiente" property="og:site_name">
+<meta value="@CVida_ind" name="twitter:site">
+<meta content="http://www.VidaIndependiente.net/Categoria.htm" property="og:url">
+<meta content="VidaIndependiente.net : Portada" property="og:title">
+<meta content="Sitio dedicado a la venta de ropa y accesorios especialmente diseñada para personas
+que tiene que ser vestida, para aquellos que están postrados en cama, en silla de ruedas,  o con 
+cierto problema de movilidad limitada. Ancianos (tercera edad), artritis o problemas de movilidad.
+Ubicado en Tijuana, Baja California Mexico" property="og:description">
+<meta property="og:locale" content="es" />
+<meta property="og:type" content="Venta.Ropa.Accesorios.Ancianos" />
+
 <link href="theme/mobile/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -57,7 +77,7 @@
 			<table align="center">
 <tr><td><br><br>
 
-		<h3>${Categoria.getNombre()}</h3>
+		<h3 style="font-size: 400%">${Categoria.getNombre()}</h3>
 </td></tr>		
 </table>
 
@@ -65,7 +85,7 @@
 <br><br>
 <table width="100%">
 <c:forEach var="lista" items="${ListaProductos}">  
-  <tr>
+  <tr valign="top">
 <c:forEach var="Producto" items="${lista}">  
   <td width="33%">
     <table width="100%">

@@ -20,8 +20,8 @@ public class BlogDAO {
 		Session session = sessionFactory.getCurrentSession();
 		session.beginTransaction();
 		
-		Blog resultado = (Blog) session.createQuery("from Blog b order by b.Fecha asc ").uniqueResult();  
-		
+		Blog resultado = (Blog) session.createQuery("from Blog b order by b.Fecha desc ").setMaxResults(1).uniqueResult();  
+				
 		session.getTransaction().commit(); 
 	
 		return resultado;				

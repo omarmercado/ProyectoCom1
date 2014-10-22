@@ -52,7 +52,19 @@ public class ProductoController {
 			HttpServletRequest request  ){
 		
 	    Producto producto = productosDAO.getProdutco(productoId);
+	    
+	    Set setCat = producto.getCategorias(); 
+		int cat = 0;
 		
+	    if(setCat.iterator().hasNext()){
+	    cat = ((Categoria)setCat.iterator().next()).getId();	
+	    }
+	    
+	    StringBuffer sb = new StringBuffer();
+	    
+	    sb.append(String.format("%02d", cat).toString());
+	    sb.append(String.format("%02d",  Integer.parseInt(productoId)));
+	    
 		Map<String, String> VersionInfo = paginaDAO.getVersion(request, "Producto"); 
 
 	    
@@ -63,11 +75,10 @@ public class ProductoController {
 		List<Blog> ListaBlogs = blogDAO.getUltimos10();
 
 		mv.addObject("ListCategorias",ListCategorias); 
-
 		mv.addObject("Pagina",paginaDAO.getPagina());
-
-		  mv.addObject("Producto",producto); 
-			mv.addObject("ListaBlogs", ListaBlogs);
+		mv.addObject("Producto",producto); 
+	    mv.addObject("ListaBlogs", ListaBlogs);
+	    mv.addObject("Catalogo", sb.toString());
 
 			String tipo =	VersionInfo.get("Tipo");
 

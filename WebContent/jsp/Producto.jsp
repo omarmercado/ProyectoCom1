@@ -5,10 +5,30 @@
     
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+<html prefix="og: http://ogp.me/ns#">
+<head profile="http://www.w3.org/2005/10/profile">
+<link rel="icon" type="images/png" href="/theme/images/icon.jpg" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>VidaIndependiente.NET</title>
+<title>Producto : Vida Independiente.net</title>
+<meta content="Sitio dedicado a la venta de ropa y accesorios especialmente diseñada para personas
+que tiene que ser vestida, para aquellos que están postrados en cama, en silla de ruedas,  o con 
+cierto problema de movilidad limitada. Ancianos (tercera edad), artritis o problemas de movilidad.
+Ubicado en Tijuana, Baja California Mexico" name="description">
+
+<meta content="es"  name="locale">
+
+<meta content="VidaIndependiente" property="og:site_name">
+<meta value="@CVida_ind" name="twitter:site">
+<meta content="http://www.VidaIndependiente.net/Producto.htm" property="og:url">
+<meta content="VidaIndependiente.net : Portada" property="og:title">
+<meta content="Sitio dedicado a la venta de ropa y accesorios especialmente diseñada para personas
+que tiene que ser vestida, para aquellos que están postrados en cama, en silla de ruedas,  o con 
+cierto problema de movilidad limitada. Ancianos (tercera edad), artritis o problemas de movilidad.
+Ubicado en Tijuana, Baja California Mexico" property="og:description">
+<meta property="og:locale" content="es" />
+<meta property="og:type" content="Venta.Ropa.Accesorios.Ancianos" />
+
 <link href="theme/style.css" rel="stylesheet" type="text/css" />
 </head>
 
@@ -46,10 +66,9 @@ function cambiarImagen(index){
 <table align="center">
 <tr><td>
 		<ul>
-		<li><a href="Portada.htm" title="">Portada</a></li>
-		<li><a href="Portada.htm" title="">Contacto</a></li>
-	    <li><a href="Portada.htm" title="">Acerca de Nosotros</a></li>
-	    <li><a href="Blog.htm" title="">Blog</a></li>
+		<li><a href="Portada.htm">Portada</a></li>
+		<li><a href="Informacion.htm" >Informacion</a></li>
+	    <li><a href="Blog.htm" >Blog</a></li>
 		</ul>
 </td></tr>		
 </table>
@@ -58,9 +77,9 @@ function cambiarImagen(index){
 <table align="center">
 <tr><td>
 		<ul>
-		<li><a href="CategoriaForm.htm" title="">Nueva Categoria</a></li>
-	    <li><a href="ProductoForm.htm" title="">Nuevo Producto</a></li>
-		<li><a href="NuevoBlog.htm" title="">Nuevo Blog</a></li>
+		<li><a href="CategoriaForm.htm" >Nueva Categoria</a></li>
+	    <li><a href="ProductoForm.htm" >Nuevo Producto</a></li>
+		<li><a href="NuevoBlog.htm" >Nuevo Blog</a></li>
 		</ul>
 </td></tr>		
 </table>
@@ -80,30 +99,12 @@ function cambiarImagen(index){
 <h3>Categorias</h3>
 
 
-<ul style="background: url(/theme/images/bg-nav-right.gif) repeat top right;">
+<ul >
 <c:forEach var="Categoria" items="${ListCategorias}">  
 <li>
-<div id="DIVcategorias" style="float: center; ">
-
 <a id="acategoria" href="Categoria.htm?categoriaId=${Categoria.getId()} ">
 ${Categoria.getNombre()}
 </a>
-</div>
-</li>
-</c:forEach>
-</ul>
-
-<h3>Blog</h3>
-
-<ul>
-<c:forEach var="ListaBlog" items="${ListaBlogs}">  
-<li>
-<div id="DIV" style="float: center; ">
-
-<a  href="GetBlog.htm?blogId=${ListaBlog.getId()} ">
-${ListaBlog.getTitulo()}
-</a>
-</div>
 </li>
 </c:forEach>
 </ul>
@@ -113,7 +114,6 @@ ${ListaBlog.getTitulo()}
 
 
 
-<div class="content">
 
 <c:if test="${sessionScope.usuario > 0}">  
 <form  action="BorrarProducto.htm" name="borrarForm" method="post">
@@ -122,9 +122,23 @@ ${ListaBlog.getTitulo()}
 </form>
 </c:if>
 
+<table width="80%">
+<tr>
+<td align="right" width="100%">
+<font style="font-weight: bold;">Conozca nuestras promociones : </font>
+</td>
+</tr>
+<tr>
+<td align="right" width="100%">
+<a href="https://twitter.com/Vida_Ind" class="twitter-follow-button" data-show-count="false" data-lang="es" >Seguir a @Vida_Ind</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+</td>
+</tr>
+</table>
+
 
 <form action="EditarProducto.htm" name="ediForm" method="post">  
-<table width="90%">
+<table width="80%">
   <tr>
     <td width="70%" valign="top" >
       <table width="100%" >
@@ -142,6 +156,11 @@ ${ListaBlog.getTitulo()}
             </c:when>
           </c:choose>
           
+        </tr>
+        <tr>
+        <td align="center">
+        <font style="font-size: 120%; font-weight: bold; font-family: sans-serif;"># ${Catalogo}</font>
+        </td>
         </tr>
         <tr valign="top">
           <td align="center" valign="top">
@@ -175,7 +194,7 @@ ${ListaBlog.getTitulo()}
             </td></tr>
           </c:when>
           <c:when test="${empty sessionScope.usuario}">
-            <tr><td align="left"><font style="font-size: 130%; font-family: sans-serif;">${Producto.getPrecio()}</font></td></tr>    
+            <tr><td align="left"><font style="font-size: 130%; font-family: sans-serif;">${Producto.getPrecio()}  MN</font>     <p><font style="font-size: 80%">Precios incluyen IVA</font></p>     </td></tr>    
           </c:when>
         </c:choose>
 
@@ -215,7 +234,7 @@ Cantidad de imagenes <input type="text" name="txtImagenes" id="txtImagenes" valu
 
 </form>
       
-</div>
+
 
 </div>
 

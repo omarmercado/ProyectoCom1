@@ -5,13 +5,32 @@
     
     
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html>
-<head>
+<html prefix="og: http://ogp.me/ns#">
+<head profile="http://www.w3.org/2005/10/profile">
+<link rel="icon" type="images/png" href="/theme/images/icon.jpg" />
+
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>VidaIndependiente.NET</title>
+<title>Categoria : Vida Independiente.net</title>
+<meta content="Sitio dedicado a la venta de ropa y accesorios especialmente diseñada para personas
+que tiene que ser vestida, para aquellos que están postrados en cama, en silla de ruedas,  o con 
+cierto problema de movilidad limitada. Ancianos (tercera edad), artritis o problemas de movilidad.
+Ubicado en Tijuana, Baja California Mexico" name="description">
+
+<meta content="es"  name="locale">
+
+<meta content="VidaIndependiente" property="og:site_name">
+<meta value="@CVida_ind" name="twitter:site">
+<meta content="http://www.VidaIndependiente.net/Categoria.htm" property="og:url">
+<meta content="VidaIndependiente.net : Portada" property="og:title">
+<meta content="Sitio dedicado a la venta de ropa y accesorios especialmente diseñada para personas
+que tiene que ser vestida, para aquellos que están postrados en cama, en silla de ruedas,  o con 
+cierto problema de movilidad limitada. Ancianos (tercera edad), artritis o problemas de movilidad.
+Ubicado en Tijuana, Baja California Mexico" property="og:description">
+<meta property="og:locale" content="es" />
+<meta property="og:type" content="Venta.Ropa.Accesorios.Ancianos" />
+
 <link href="theme/style.css" rel="stylesheet" type="text/css" />
 </head>
-
 <body>
 
     <div >
@@ -23,10 +42,9 @@
 <table align="center">
 <tr><td>
 		<ul>
-		<li><a href="Portada.htm" title="">Portada</a></li>
-		<li><a href="Portada.htm" title="">Contacto</a></li>
-	    <li><a href="Portada.htm" title="">Acerca de Nosotros</a></li>
-	    <li><a href="Blog.htm" title="">Blog</a></li>	    
+		<li><a href="Portada.htm">Portada</a></li>
+		<li><a href="Informacion.htm" >Informacion</a></li>
+	    <li><a href="Blog.htm" >Blog</a></li>    
 		</ul>
 </td></tr>		
 </table>		
@@ -56,37 +74,20 @@
 <h3>Categorias</h3>
 
 
-<ul  style="background: url(/theme/images/bg-nav-right.gif) repeat top right;">
+<ul  >
 <c:forEach var="Categoria" items="${ListCategorias}">  
 <li>
-<div id="DIVcategorias" style="float: center; ">
-
 <a id="acategoria" href="Categoria.htm?categoriaId=${Categoria.getId()} ">
 ${Categoria.getNombre()}
 </a>
-</div>
 </li>
 </c:forEach>
 </ul>
 
-<h3>Blog</h3>
 
-<ul>
-<c:forEach var="ListaBlog" items="${ListaBlogs}">  
-<li>
-<div id="DIV" style="float: center; ">
-
-<a  href="GetBlog.htm?blogId=${ListaBlog.getId()} ">
-${ListaBlog.getTitulo()}
-</a>
-</div>
-</li>
-</c:forEach>
-</ul>
 </div>
 
 
-			<div class="content">
 			<table align="center" width="40%">
 <tr><td align="center">
 
@@ -133,7 +134,7 @@ ${ListaBlog.getTitulo()}
 
 
 
-<table width="90%">
+<table width="80%">
 <c:forEach var="lista" items="${ListaProductos}">  
   <tr>
 <c:forEach var="Producto" items="${lista}">  
@@ -166,7 +167,7 @@ ${ListaBlog.getTitulo()}
 </c:forEach>
 </table>
           
-</div>
+
 
 </div>
 
